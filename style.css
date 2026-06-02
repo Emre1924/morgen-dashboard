@@ -1,0 +1,82 @@
+/* Grunddesign für den Hintergrund */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Hellgrau wie bei vielen Apps */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #1a73e8; /* Ein freundliches Blau */
+}
+
+/* Der Container, der die Boxen hält */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Das Aussehen der einzelnen "App-Karten" */
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px; /* Abgerundete Ecken für den App-Look */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ein leichter Schatten */
+    transition: transform 0.2s;
+}
+
+.box:hover {
+    transform: translateY(-5px); /* Kleiner Effekt beim Drüberfahren */
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 10px;
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#todo-box button {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+#todo-list li.completed span {
+    text-decoration: line-through;
+    color: #aaa;
+}

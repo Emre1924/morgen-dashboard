@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein Morgen-Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Mein Morgen-Dashboard</h1>
 
     <div class="dashboard-container">
-        
+
+        <!-- WETTER BOX -->
         <div class="box" id="wetter-box">
             <h2>Wetter</h2>
-            <p>Hier landen später die Python-Daten...</p>
+            <p>Hier landen später die Wetter-Daten...</p>
         </div>
 
+        <!-- TO-DO BOX -->
         <div class="box" id="todo-box">
             <h2>Meine To-Dos</h2>
-            <p>Hier hilft uns später JavaScript...</p>
+            <div class="todo-input-container">
+                <input type="text" id="todo-input" placeholder="Neue Aufgabe...">
+                <button onclick="addTodo()">Hinzufügen</button>
+            </div>
+            <ul id="todo-list"></ul>
         </div>
 
+        <!-- NEWS BOX -->
         <div class="box" id="news-box">
             <h2>Aktuelle News</h2>
             <p>Schlagzeilen werden hier geladen...</p>
@@ -28,5 +36,7 @@
 
     </div>
 
+    <!-- Verbindung zur JavaScript-Datei -->
+    <script src="script.js"></script>
 </body>
 </html>
