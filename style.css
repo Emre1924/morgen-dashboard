@@ -118,3 +118,92 @@ h2 {
 #news-liste a:hover {
     text-decoration: underline;
 }
+
+/* DARK MODE STYLES */
+.theme-toggle-container {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#theme-toggle {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+/* Wenn Dark Mode aktiv ist, ändert sich folgendes: */
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode h1 {
+    color: #8ab4f8;
+}
+
+body.dark-mode .box {
+    background: #1e1e1e;
+    color: #e3e3e3;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+body.dark-mode h2 {
+    border-bottom-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #todo-input {
+    background: #2d2d2d;
+    border-color: #444;
+    color: white;
+}
+
+body.dark-mode #news-liste a {
+    color: #8ab4f8;
+}
+
+body.dark-mode #news-liste li {
+    border-bottom-color: #333;
+}
+
+body.dark-mode #theme-toggle {
+    background: #fff;
+    color: #333;
+}
+
+/* WELCOME & CLOCK STYLES */
+.welcome-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+#begruessung {
+    margin-bottom: 5px;
+    font-size: 2.2rem;
+}
+
+#uhrzeit {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff7b00; /* Passend zu unseren Akzenten */
+    font-family: monospace; /* Damit die Zahlen beim Ticken nicht springen */
+}
+
+#datum {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Anpassung für den Dark Mode */
+body.dark-mode #datum {
+    color: #aaa;
+}
