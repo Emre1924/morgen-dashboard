@@ -96,3 +96,25 @@ h2 {
     text-transform: capitalize;
     color: #666;
 }
+
+#news-liste {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#news-liste li {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+#news-liste a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#news-liste a:hover {
+    text-decoration: underline;
+}

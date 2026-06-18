@@ -70,3 +70,35 @@ function fetchWeather() {
 
 // Die Funktion sofort ausführen
 fetchWeather();
+
+// Funktion, um aktuelle News zu laden
+function fetchNews() {
+    // Eine freie News-API, die aktuelle Artikel liefert
+    const url = "https://api.spaceflightnewsapi.net/v4/articles/?limit=3";
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("News konnten nicht geladen werden");
+            }
+            return response.json();
+        })
+        .then(data => {
+            const newsListe = document.getElementById("news-liste");
+            newsListe.innerHTML = ""; // Den "Lade..." Text löschen
+
+            // Wir gehen die ersten 3 Artikel durch und bauen Links daraus
+            data.results.forEach(artikel => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href="${artikel.url}" target="_blank">${artikel.title}</a>`;
+                newsListe.appendChild(li);
+            });
+        })
+        .catch(error => {
+            console.error("Fehler:", error);
+            document.getElementById("news-liste").innerHTML = "<li>Fehler beim Laden der News!</li>";
+        });
+}
+
+// Auch die News sofort beim Start laden
+fetchNews();
