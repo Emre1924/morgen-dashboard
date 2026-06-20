@@ -1,0 +1,262 @@
+/* ALLGEMEINE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 1s ease, color 0.3s ease;
+}
+
+/* THEME TOGGLE BUTTON BUTTON */
+.theme-toggle-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+#theme-toggle {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* WELCOME & CLOCK STYLES */
+.welcome-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+#begruessung {
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+#uhrzeit {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ff7b00;
+    font-family: monospace;
+}
+
+#datum {
+    font-size: 1.3rem;
+    color: #666;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* DASHBOARD GRID */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* BOXEN STYLES */
+.box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-3px);
+}
+
+.box h2 {
+    margin-bottom: 15px;
+    color: #ff7b00;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 5px;
+}
+
+/* TO-DO INTERFACE */
+.todo-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.todo-input-container button {
+    padding: 8px 15px;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 10px;
+    background-color: #f8f9fa;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+/* NEWS BOX STYLES */
+#news-liste li a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#news-liste li a:hover {
+    text-decoration: underline;
+}
+
+/* WETTER SUCHE */
+.search-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.wetter-info h3 {
+    font-size: 2rem;
+    margin: 5px 0;
+}
+
+/* DRAG & DROP ZONE STYLES */
+.list-title {
+    margin: 10px 0 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.drag-zone {
+    min-height: 60px;
+    background-color: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.drag-zone.drag-over {
+    background-color: #e8f0fe;
+    border-color: #1a73e8;
+}
+
+#todo-list li, #done-list li {
+    background: white;
+    cursor: grab;
+    border: 1px solid #eee;
+}
+
+#done-list li span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* DYNAMISCHE TIME-BACKGROUNDS */
+body.bg-morning { background: linear-gradient(135deg, #ffeaa7 0%, #ffbe76 100%) !important; color: #2d3436; }
+body.bg-day { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%) !important; color: white; }
+body.bg-evening { background: linear-gradient(135deg, #2d3436 0%, #1e272e 100%) !important; color: #f5f6fa; }
+
+body.bg-day .box, body.bg-morning .box, body.bg-evening .box { 
+    background: rgba(255, 255, 255, 0.95); 
+    color: #333 !important; 
+}
+body.bg-day #uhrzeit, body.bg-morning #uhrzeit { color: #d35400; }
+body.bg-day #datum, body.bg-morning #datum { color: #2c3e50; }
+
+/* DARK MODE OVERRIDE */
+body.dark-mode {
+    background: #121212 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .box {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode li {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode #theme-toggle {
+    background-color: white;
+    color: #333;
+}
+
+body.dark-mode .drag-zone {
+    background-color: #252525;
+    border-color: #444;
+}
+
+body.dark-mode #todo-list li, body.dark-mode #done-list li {
+    background: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-mode .list-title {
+    color: #aaa;
+}
+body.dark-mode #datum {
+    color: #ccc;
+}
