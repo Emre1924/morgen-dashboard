@@ -22,7 +22,6 @@ function App() {
       if (stunde >= 6 && stunde < 11) {
         setBackgroundGradient('linear-gradient(135deg, #e0c3fc 0%, #fbc2eb 100%)');
       } else if (stunde >= 11 && stunde < 18) {
-        // HIER JETZT DAS NEUE BLASSERE HIMMELSBLAU FÜR DEN TAG
         setBackgroundGradient('linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)');
       } else if (stunde >= 18 && stunde < 22) {
         setBackgroundGradient('linear-gradient(135deg, #f6d365 0%, #fda085 100%)');
@@ -52,7 +51,7 @@ function App() {
 
   return (
     <div className="app-wrapper" style={{ background: aktuellerHintergrund }}>
-      <div className="app-container" style={{ padding: '30px 20px', maxWidth: '1400px', margin: '0 auto' }}>
+      <div className="app-container" style={{ padding: '20px 15px', maxWidth: '1400px', margin: '0 auto' }}>
         
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
           <ThemeToggle />
@@ -62,9 +61,10 @@ function App() {
         <QuickLinks />
 
         <div className="dashboard-grid">
-          <div className="dashboard-card"><Weather /></div>
-          <div className="dashboard-card"><TodoList /></div>
-          <div className="dashboard-card"><News /></div>
+          {/* Klassen hinzugefügt, um die Reihenfolge auf dem Handy zu steuern */}
+          <div className="dashboard-card card-weather"><Weather /></div>
+          <div className="dashboard-card card-todo"><TodoList /></div>
+          <div className="dashboard-card card-news"><News /></div>
         </div>
       </div>
 
@@ -87,6 +87,7 @@ function App() {
           transition: background 0.3s ease-in-out;
         }
 
+        /* PC-Ansicht: 3 Spalten nebeneinander */
         .dashboard-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -128,6 +129,30 @@ function App() {
           flex-direction: column;
           min-height: 380px;
           transition: all 0.3s ease;
+        }
+
+        /* HANDY-ANSICHT: Eine Spalte untereinander mit neuer Reihenfolge */
+        @media (max-width: 900px) {
+          .dashboard-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+          }
+          
+          .dashboard-card {
+            min-height: auto;
+          }
+
+          /* Hier bestimmen wir die genaue Reihenfolge auf dem Smartphone */
+          .card-todo {
+            order: 1; /* To-Dos ganz nach oben */
+          }
+          .card-weather {
+            order: 2; /* Wetter in die Mitte */
+          }
+          .card-news {
+            order: 3; /* News nach unten */
+          }
         }
       `}</style>
     </div>
